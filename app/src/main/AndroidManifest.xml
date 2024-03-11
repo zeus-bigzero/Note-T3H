@@ -21,6 +21,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".File2Activity"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".File3Activity"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".MainActivityHome"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>
