@@ -36,37 +36,30 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/pending"
+        android:src="@drawable/option_icon"
         app:layout_constraintBottom_toTopOf="@id/searchBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
+    <EditText
         android:id="@+id/searchBar"
         android:layout_width="match_parent"
         android:layout_height="37dp"
         android:layout_marginTop="15dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="10dp"
+        style="@style/ViewBackground"
+        android:hint="Search"
+        android:paddingStart="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title">
+        app:layout_constraintTop_toBottomOf="@id/title" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="15dp"
-            android:background="@null"
-            android:hint="Search" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/allNotes"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="10dp"
+        style="@style/ViewBackground"
+        android:gravity="center_vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchBar"
         app:layout_constraintWidth_percent="0.485">
@@ -74,28 +67,26 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
-            android:src="@drawable/allnotes" />
+            android:src="@drawable/notes_icon"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="10dp"
             android:text="All Notes"
             android:textColor="#1C2121"
             android:textSize="15sp" />
 
-    </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.cardview.widget.CardView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/favourites"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="10dp"
+        style="@style/ViewBackground"
+        android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchBar"
         app:layout_constraintWidth_percent="0.485">
@@ -103,27 +94,25 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
-            android:src="@drawable/favourites" />
+            android:src="@drawable/favourites_icon"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="10dp"
             android:text="Favourites"
             android:textColor="#1C2121"
             android:textSize="15sp" />
-    </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.cardview.widget.CardView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/hidden"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="11dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="10dp"
+        android:layout_marginTop="15dp"
+        style="@style/ViewBackground"
+        android:gravity="center_vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/allNotes"
         app:layout_constraintWidth_percent="0.485">
@@ -131,27 +120,25 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
-            android:src="@drawable/hidden" />
+            android:src="@drawable/hidden_icon"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="10dp"
             android:text="Hidden"
             android:textColor="#1C2121"
             android:textSize="15sp" />
-    </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.cardview.widget.CardView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/trash"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="11dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="10dp"
+        android:layout_marginTop="15dp"
+        style="@style/ViewBackground"
+        android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/favourites"
         app:layout_constraintWidth_percent="0.485">
@@ -159,19 +146,17 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/trash" />
+            android:src="@drawable/trash_icon"
+            android:layout_marginStart="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="10dp"
             android:text="Trash"
             android:textColor="#1C2121"
             android:textSize="15sp" />
-    </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <TextView
         android:id="@+id/title_recent"
@@ -422,7 +407,7 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/menu_notes" />
+                android:src="@drawable/note_btn"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -448,14 +433,14 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/menu_event" />
+                android:src="@drawable/calendar_btn"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="Event"
-                android:textColor="#007AFF"
+                android:textColor="#1C2121"
                 android:textSize="9sp" />
         </LinearLayout>
 
@@ -474,14 +459,14 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/menu_search" />
+                android:src="@drawable/search_btn"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="Search"
-                android:textColor="#007AFF"
+                android:textColor="#1C2121"
                 android:textSize="9sp" />
         </LinearLayout>
 
@@ -500,14 +485,14 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/menu_createnote" />
+                android:src="@drawable/createnote_btn"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="Create Note"
-                android:textColor="#007AFF"
+                android:textColor="#1C2121"
                 android:textSize="9sp" />
         </LinearLayout>
 

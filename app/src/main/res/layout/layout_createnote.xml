@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:padding="20dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/round_arrow_back_ios_new_24"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textColor="#007AFF"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_while_bg"
+        android:backgroundTint="#1F2124"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Save"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"/>
+
+    <EditText
+        android:id="@+id/pageTitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintTop_toBottomOf="@+id/btnSave"
+        android:background="@null"
+        android:layout_marginTop="20dp"
+        android:hint="Page Title"
+        android:textStyle="bold"
+        android:textSize="26sp"/>
+
+    <EditText
+        android:id="@+id/pageBody"
+        android:layout_width="match_parent"
+        app:layout_constraintHeight_percent="0.85"
+        app:layout_constraintTop_toBottomOf="@+id/pageTitle"
+        android:background="@null"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:layout_height="0dp"
+        android:inputType="textMultiLine"
+        android:gravity="top"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,11 +14,6 @@
         tools:targetApi="34">
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
-
-        <activity
-            android:name=".FirstIntroFrame"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,17 +22,12 @@
         </activity>
 
         <activity
-            android:name=".SecondIntroFrame"
-            android:exported="false">
-        </activity>
-
-        <activity
-            android:name=".ThirdIntroFrame"
-            android:exported="false">
-        </activity>
-
-        <activity
             android:name=".HomeScreen"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".CreateNote"
             android:exported="false">
         </activity>
 
