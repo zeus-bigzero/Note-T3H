@@ -1,4 +1,5 @@
 package edu.t3h.note
 
-class Manager {
+object Manager {
+    var step = 0
 }
