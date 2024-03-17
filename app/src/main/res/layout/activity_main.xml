@@ -7,6 +7,33 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:drawableStart="@drawable/baseline_arrow_back_ios_24"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/nunito_sans_regular"
+        android:text="Back"
+        android:textColor="#007AFF"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/nunito_sans_regular"
+        android:text="Skip"
+        android:textColor="#007AFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/img"
@@ -20,29 +47,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.8"/>
-
-    <TextView
-        android:id="@+id/tvBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="20dp"
-        android:text="Back"
-        android:textSize="@dimen/TextSize"
-        android:textColor="@color/blue"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-    <TextView
-        android:id="@+id/tvSkip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
-        android:text="Skip"
-        android:textSize="@dimen/TextSize"
-        android:textColor="@color/blue"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -121,14 +125,14 @@
                 android:id="@+id/tVtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tVtitle1"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:textSize="15sp"
+                android:text="A completely easy way to manage and customize your notes."
                 android:textColor="@color/textCOLOR"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@id/btnNext"
-                android:text="A completely easy way to manage and customize your notes."/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tVtitle1" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnNext"
@@ -142,11 +146,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Next"
+                    android:fontFamily="@font/nunito_sans_regular"
                     android:textColor="@color/white"
                     android:textSize="23sp"
                     android:gravity="center"/>
 
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

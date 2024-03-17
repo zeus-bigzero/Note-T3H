@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Note T3H</string>
+    <string name="title_home_main">Notes</string>
+    <string name="title_event_main">Event</string>
+    <string name="title_search_main">Search</string>
+    <string name="title_create_note_main">Create Note</string>
 </resources>

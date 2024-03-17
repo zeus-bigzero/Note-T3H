@@ -55,11 +55,7 @@ class MainActivity : AppCompatActivity() {
         view2 = findViewById(R.id.view2)
         view3 = findViewById(R.id.view3)
 
-        /*tvBack.setOnClickListener{
-            step++
-            updateStep()
-        }
-        backStep()*/
+
         tvSkip.setOnClickListener{
             step++
             updateStep()

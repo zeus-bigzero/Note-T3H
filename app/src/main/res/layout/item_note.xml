@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv1"
+        android:layout_width="168dp"
+        android:layout_height="198dp"
+        android:background="#1A8E8E92"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/cv2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvTitlee"
+            android:layout_width="109dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="Getting Started"
+            android:textColor="#1C2121"
+            android:textSize="15dp" />
+
+        <View
+            android:layout_width="138dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginRight="15dp"
+            android:background="#000000" />
+
+        <TextView
+            android:id="@+id/tvDess"
+            android:layout_width="138dp"
+            android:layout_height="134dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="49dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam cum ligula
+justo.Nisi, consecteturelementum." />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv2"
+        android:layout_width="168dp"
+        android:layout_height="198dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cv1"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="109dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="UX design"
+            android:textColor="#1C2121"
+            android:textSize="15dp" />
+
+        <View
+            android:layout_width="138dp"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="44dp"
+            android:background="#000000" />
+
+        <TextView
+            android:layout_width="138dp"
+            android:layout_height="134dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="49dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam cum ligulajusto.Nisi, consecteturelementum." />
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/ln1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_adapter"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="5dp"
+            android:text="Important"
+            android:textSize="@dimen/textSizeHome" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="5dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam cum ligula
+justo.Nisi, consecteturelementum." />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ln2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_adapter"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ln1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="5dp"
+            android:text="Important"
+            android:textSize="@dimen/textSizeHome" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="5dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam cum ligula
+                        justo.Nisi, consecteturelementum." />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

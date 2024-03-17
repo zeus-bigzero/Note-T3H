@@ -1,21 +1,31 @@
 package edu.t3h.note
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
+import android.provider.ContactsContract.CommonDataKinds.Note
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import edu.t3h.note.databinding.ActiviteHomeScreenBinding
+import edu.t3h.note.databinding.ActivityMainBinding
 
 class Home_screen : AppCompatActivity() {
-    private lateinit var createNote: ImageView
+
+    private lateinit var binding: ActiviteHomeScreenBinding
+    private val mBinding: ActiviteHomeScreenBinding by lazy { binding}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_screen)
+        binding = ActiviteHomeScreenBinding.inflate(layoutInflater)
+        setContentView(mBinding.root)
 
-
-        createNote = findViewById<ImageView>(R.id.img1)
-        createNote.setOnClickListener{
-            val intent = Intent(this, Create_Note::class.java)
-            startActivity(intent)
+        mBinding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@Home_screen)
+            adapter = NoteAdapter(
+                listOf(
+                    edu.t3h.note.model.Note("Getting Started", "Lorem ipsum dolor sit amet, consectetur adipisicing elit." +
+                        " Cupiditate ea enim ipsum sint unde velit vitae! Asperiores dignissimos dolores eius eos"
+                    ),edu.t3h.note.model.Note("Getting Started", "LOREM ipsum dolor sit amet, consectetur adipisicing elit." +
+                            " Cupiditate ea enim ipsum sint unde velit vitae! Asperiores dignissimos dolores eius eos")
+                )
+            )
         }
     }
 }
