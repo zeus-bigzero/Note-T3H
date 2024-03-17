@@ -30,7 +30,7 @@ class CreateNote : AppCompatActivity() {
         btnBack.setOnClickListener {
             Toast.makeText(this, Manager.title, Toast.LENGTH_LONG).show()
             Toast.makeText(this, Manager.body, Toast.LENGTH_LONG).show()
-            startActivity(Intent(this, HomeScreen::class.java))
+            startActivity(Intent(this, HomeScreenFragment::class.java))
             finish()
         }
 

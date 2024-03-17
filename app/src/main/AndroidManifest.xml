@@ -13,7 +13,7 @@
         android:theme="@style/Theme.NoteT3H"
         tools:targetApi="34">
         <activity
-            android:name=".MainActivity"
+            android:name=".TutorialScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,12 +22,17 @@
         </activity>
 
         <activity
-            android:name=".HomeScreen"
+            android:name=".HomeScreenFragment"
             android:exported="false">
         </activity>
 
         <activity
             android:name=".CreateNote"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
             android:exported="false">
         </activity>
 
