@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="TextSize">14dp</dimen>
+    <dimen name="textSizeHome">15dp</dimen>
+    <dimen name="TextTile">30dp</dimen>
+</resources>

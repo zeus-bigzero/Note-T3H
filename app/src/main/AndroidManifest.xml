@@ -13,7 +13,13 @@
         android:theme="@style/Theme.NoteT3H"
         tools:targetApi="31">
         <activity
+            android:name=".Create_Note"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home_screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
