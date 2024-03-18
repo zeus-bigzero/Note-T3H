@@ -13,7 +13,7 @@
         android:theme="@style/Theme.NoteT3H"
         tools:targetApi="34">
         <activity
-            android:name=".TutorialScreen"
+            android:name=".TutorialScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

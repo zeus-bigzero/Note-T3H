@@ -5,14 +5,16 @@
     android:orientation="vertical"
     android:paddingHorizontal="10dp"
     android:paddingVertical="15dp"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    style="@style/ViewBackground">
 
     <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Getting Started"
+        android:text="@string/getting_started"
         android:textStyle="bold"
-        android:textSize="15sp"/>/
+        android:textSize="15sp"/>
     <View
         android:layout_marginVertical="5dp"
         android:layout_width="match_parent"
@@ -20,10 +22,12 @@
         android:background="@color/black"/>
 
     <TextView
+        android:id="@+id/tvDes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/lorem_ipsum"
         android:textSize="12sp"
-        android:maxLines="3"/>/
+        android:maxLines="3"
+        android:ellipsize="end"/>
 
 </LinearLayout>

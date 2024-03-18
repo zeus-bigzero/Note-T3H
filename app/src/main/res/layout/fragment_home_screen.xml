@@ -20,14 +20,13 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Day"
             android:textColor="#3C3C4399"
             android:textSize="13sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Notes"
+            android:text="@string/notes"
             android:textColor="#1C2121"
             android:textSize="26sp"
             android:textStyle="bold" />
@@ -39,6 +38,7 @@
         android:src="@drawable/option_icon"
         app:layout_constraintBottom_toTopOf="@id/searchBar"
         app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@null"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -47,8 +47,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="15dp"
-        android:hint="Search"
-        android:paddingStart="10dp"
+        android:hint="@string/search"
+        android:inputType="text"
+        android:autofillHints="@null"
+        android:paddingHorizontal="10dp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.05"
@@ -71,13 +73,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:contentDescription="@null"
             android:src="@drawable/notes_icon" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="All Notes"
+            android:text="@string/all_notes"
             android:textColor="#1C2121"
             android:textSize="15sp" />
 
@@ -99,13 +102,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:contentDescription="@null"
             android:src="@drawable/favourites_icon" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Favourites"
+            android:text="@string/favourites"
             android:textColor="#1C2121"
             android:textSize="15sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -126,13 +130,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:contentDescription="@null"
             android:src="@drawable/hidden_icon" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Hidden"
+            android:text="@string/hidden"
             android:textColor="#1C2121"
             android:textSize="15sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -153,13 +158,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:contentDescription="@null"
             android:src="@drawable/trash_icon" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Trash"
+            android:text="@string/trash"
             android:textColor="#1C2121"
             android:textSize="15sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -170,7 +176,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
-        android:text="Recent Notes"
+        android:text="@string/recent_notes"
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold"

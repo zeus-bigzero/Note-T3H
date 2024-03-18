@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back"
+            android:text="@string/back"
             android:textColor="#007AFF"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -32,7 +32,7 @@
         android:backgroundTint="#1F2124"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Save"
+        android:text="@string/save"
         android:textColor="@color/white"
         android:textSize="15sp"
         android:paddingTop="5dp"
@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnSave"
         android:background="@null"
         android:layout_marginTop="20dp"
-        android:hint="Page Title"
+        android:hint="@string/page_title"
         android:textStyle="bold"
         android:textSize="26sp"/>
 

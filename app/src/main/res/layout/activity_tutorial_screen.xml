@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".TutorialScreen">
+    tools:context=".TutorialScreenActivity">
 
-    <ImageView
-        android:id="@+id/img"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
@@ -31,11 +31,12 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@null"
             android:src="@drawable/round_arrow_back_ios_new_24"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back"
+            android:text="@string/back"
             android:textColor="#007AFF"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -46,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:text="Skip"
+        android:text="@string/skip"
         android:textColor="#007AFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -75,7 +76,7 @@
             android:id="@+id/slideBar"
             android:layout_width="match_parent"
             android:layout_height="6dp"
-            android:background="@drawable/shape_slidebar_bg"
+            android:background="@drawable/shape_slide_bar_bg"
             android:orientation="horizontal"
             android:weightSum="3"
             app:layout_constraintBottom_toTopOf="@+id/tvTitle1"
@@ -88,14 +89,14 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_slidebar" />
+                android:background="@drawable/shape_slide_bar" />
 
             <View
                 android:id="@+id/view2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_slidebar"
+                android:background="@drawable/shape_slide_bar"
                 android:visibility="invisible" />
 
             <View
@@ -103,7 +104,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_slidebar"
+                android:background="@drawable/shape_slide_bar"
                 android:visibility="invisible" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -114,7 +115,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="Manage your notes easily"
             android:textColor="#1C2121"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -129,7 +129,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="A completely easy way to manage and customize your notes."
             android:textColor="#1C2121"
             android:textSize="15sp"
             app:layout_constraintBottom_toTopOf="@id/btnNext"
@@ -143,7 +142,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/shape_button"
             android:padding="10dp"
-            android:text="Next"
             android:textColor="#FFFFFF"
             android:textAlignment="center"
             android:textSize="20sp"

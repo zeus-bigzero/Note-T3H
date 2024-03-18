@@ -15,7 +15,7 @@ class CreateNote : AppCompatActivity() {
     private lateinit var btnBack : LinearLayoutCompat
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout_createnote)
+        setContentView(R.layout.layout_create_note)
 
         pageTitle = findViewById(R.id.pageTitle)
         pagebody = findViewById(R.id.pageBody)
@@ -33,6 +33,5 @@ class CreateNote : AppCompatActivity() {
             startActivity(Intent(this, HomeScreenFragment::class.java))
             finish()
         }
-
     }
 }

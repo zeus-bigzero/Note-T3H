@@ -42,4 +42,18 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="create_note">Create Note</string>
+    <string name="search">Search</string>
+    <string name="event">Event</string>
+    <string name="notes">Notes</string>
+    <string name="hidden">Hidden</string>
+    <string name="trash">Trash</string>
+    <string name="recent_notes">Recent Notes</string>
+    <string name="favourites">Favourites</string>
+    <string name="all_notes">All Notes</string>
+    <string name="getting_started">Getting Started</string>
+    <string name="back">Back</string>
+    <string name="save">Save</string>
+    <string name="page_title">Page Title</string>
+    <string name="skip">Skip</string>
 </resources>

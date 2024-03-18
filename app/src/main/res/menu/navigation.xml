@@ -3,20 +3,20 @@
     <item
         android:id="@+id/navigation_notes"
         android:icon="@drawable/note_btn"
-        android:title="Notes" />
+        android:title="@string/notes" />
 
     <item
         android:id="@+id/navigation_event"
         android:icon="@drawable/calendar_btn"
-        android:title="Event" />
+        android:title="@string/event" />
 
     <item
         android:id="@+id/navigation_search"
         android:icon="@drawable/search_btn"
-        android:title="Search" />
+        android:title="@string/search" />
 
     <item
         android:id="@+id/navigation_createNote"
         android:icon="@drawable/createnote_btn"
-        android:title="Create Note" />
+        android:title="@string/create_note" />
 </menu>
