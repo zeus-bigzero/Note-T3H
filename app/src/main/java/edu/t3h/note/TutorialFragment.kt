@@ -26,26 +26,40 @@ class TutorialFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.viewPager.adapter = TutorialAdapter()
 
-        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
 
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-                updateUi(position)
-                if (position == 2) {
-                    binding.nextbtn.setOnClickListener {
-                        parentFragmentManager.beginTransaction()
-                            .replace(R.id.container, HomeFragment())
-                            .commit()
-                    }
+        binding.viewPager.apply {
+            adapter = TutorialAdapter()
+            offscreenPageLimit = 2
+            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+//                    Manager.step = position
+                    updateUi(position)
                 }
+            })
+
+        }
+
+        binding.nextbtn.setOnClickListener {
+            if (Manager.step < 2) {
+                binding.viewPager.currentItem++
+            } else {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.container, HomeFragment())
+                    .commit()
             }
-        })
+        }
+
+        binding.skiptxt.setOnClickListener {
+            binding.viewPager.currentItem++
+        }
+
+        binding.btnBack.setOnClickListener {
+            binding.viewPager.currentItem--
+        }
+
+//        updateUi(Manager.step)
     }
 
     private fun updateUi(step: Int) {
@@ -85,4 +99,10 @@ class TutorialFragment : Fragment() {
             }
         }
     }
+
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        binding.viewPager.unregisterOnPageChangeCallback(object :
+//            ViewPager2.OnPageChangeCallback() {})
+//    }
 }
