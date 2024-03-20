@@ -11,93 +11,62 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.view.children
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
+import edu.t3h.note.databinding.ActivityMainBinding
+import edu.t3h.note.listener.OnNoteClickListener
+import edu.t3h.note.model.Note
 
 class MainActivity : AppCompatActivity() {
 
-    // region -> UI Components
+    private lateinit var binding: ActivityMainBinding
+    private val mBinding: ActivityMainBinding by lazy { binding }
 
-    private lateinit var img: ImageView
-    private lateinit var title1: TextView
-    private lateinit var title2: TextView
+    private val notes = arrayListOf<Note>()
+    private val adapter: NoteAdapter by lazy {
+        NoteAdapter(
+            notes,
+            object : OnNoteClickListener {
+                override fun onClickNote(note: Note) {
+                    Toast.makeText(this@MainActivity, "OnClick Note = ${note.id}", Toast.LENGTH_SHORT).show()
+                }
 
-    private lateinit var view1: View
-    private lateinit var view2: View
-    private lateinit var view3: View
+                override fun onLongClickNote(note: Note) {
+                    Toast.makeText(this@MainActivity, "OnLongClick Note = ${note.id}", Toast.LENGTH_SHORT).show()
+                }
 
-    private lateinit var btnNext: CardView
-
-    // endregion
-
-    // region -> variables
-
-    private var step = 0
-
-    // endregion
+            }
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(mBinding.root)
 
-        savedInstanceState?.let {
-            Log.d("TAGs", "${it.getInt("step")}")
-            step = it.getInt("step")
+        notes.addAll(
+            listOf(
+                Note(
+                    title = "Getting Started",
+                    des = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam cum ligula justo.Nisi, consectetur elementum."
+                ), Note(
+                    title = "Getting Started",
+                    des = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam cum ligula justo.Nisi, consectetur elementum."
+                )
+            )
+        )
+        mBinding.recyclerView.apply {
+            adapter = this@MainActivity.adapter
         }
 
-        img = findViewById(R.id.img)
-        title1 = findViewById(R.id.tvTitle1)
-        title2 = findViewById(R.id.tvTitle2)
-        btnNext = findViewById(R.id.btnNext)
+        mBinding.btnAddNote.setOnClickListener {
+            // thực hiện công việc: Tạo 1 đối tượng Note mới
+            // add vào danh sách cũ
+            // hiển thị lên đầu danh sách trên màn hình.
 
-        view1 = findViewById(R.id.view1)
-        view2 = findViewById(R.id.view2)
-        view3 = findViewById(R.id.view3)
+            val note = Note(id = System.currentTimeMillis(), title = "T3H", des = "Welcome LAND2311")
+            notes.add(0, note) // add vào vị trí nào? vào cuối? vàoầu
 
-        btnNext.setOnClickListener {
-            step++
-            updateStep()
-        }
-
-        updateStep()
-    }
-
-    private fun updateStep() {
-        if (step == 0) {
-            img.setImageResource(R.drawable.tuto_01)
-            title1.setText("Manage your notes easily")
-            title2.text = "A completely easy way to manage and customize your notes."
-            view1.visibility = View.VISIBLE
-            view2.visibility = View.INVISIBLE
-            view3.visibility = View.INVISIBLE
-        } else if (step == 1) {
-            img.setImageResource(R.drawable.tuto_02)
-            title1.setText("Organize your thougts")
-            title2.text = "Most beautiful note taking application."
-
-            view2.visibility = View.VISIBLE
-            view1.visibility = View.INVISIBLE
-            view3.visibility = View.INVISIBLE
-        } else if (step == 2) {
-            img.setImageResource(R.drawable.tuto_03)
-            title1.setText("Create cards and easy styling")
-            title2.text = "Making your content legible has never been easier."
-
-            btnNext.children.forEach {
-                (it as? TextView)?.text = "Get Started"
-            }
-
-            view3.visibility = View.VISIBLE
-            view1.visibility = View.INVISIBLE
-            view2.visibility = View.INVISIBLE
-        } else {
-            Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show()
+            adapter.notifyDataSetChanged()
         }
     }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putInt("step", step)
-        Log.d("TAGs", "step 2 = $step")
-        super.onSaveInstanceState(outState)
-    }
-
-
 }

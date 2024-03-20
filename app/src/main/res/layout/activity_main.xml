@@ -7,138 +7,23 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="0dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/tuto_01"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="20dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/btnAddNote"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.8" />
+        tools:itemCount="10"
+        tools:listitem="@layout/item_note" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btnAddNote"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="Skip"
-        android:textColor="#007AFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:cardBackgroundColor="#F9F9F9"
-        app:cardCornerRadius="40dp"
-        app:cardElevation="0dp"
+        android:text="Add Note"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="20dp">
-
-            <View
-                android:id="@+id/cardView"
-                android:layout_width="0dp"
-                android:layout_height="6dp"
-                android:background="#CECBD3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:orientation="horizontal"
-                android:weightSum="3"
-                app:layout_constraintBottom_toBottomOf="@id/cardView"
-                app:layout_constraintEnd_toEndOf="@id/cardView"
-                app:layout_constraintStart_toStartOf="@id/cardView"
-                app:layout_constraintTop_toTopOf="@id/cardView">
-
-                <View
-                    android:id="@+id/view1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="#3A85F7" />
-
-                <View
-                    android:id="@+id/view2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="#3A85F7"
-                    android:visibility="invisible" />
-
-                <View
-                    android:id="@+id/view3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="#3A85F7"
-                    android:visibility="invisible" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <TextView
-                android:id="@+id/tvTitle1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="Manage your notes easily"
-                android:textColor="#1C2121"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/tvTitle2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardView" />
-
-            <TextView
-                android:id="@+id/tvTitle2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="A completely easy way to manage and customize your notes."
-                android:textColor="#1C2121"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toTopOf="@id/btnNext"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle1" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/btnNext"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="40dp"
-                app:cardBackgroundColor="#007AFF"
-                app:cardCornerRadius="10dp"
-                app:layout_constraintBottom_toBottomOf="parent">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="Next"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
