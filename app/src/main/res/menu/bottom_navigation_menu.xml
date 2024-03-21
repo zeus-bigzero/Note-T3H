@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/notes"
+        android:icon="@drawable/ic_notes"
+        android:title="Notes"/>
+    <item
+        android:id="@+id/event"
+        android:icon="@drawable/ic_event"
+        android:title="Event"/>
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search"
+        android:title="Search"/>
+    <item
+        android:id="@+id/create"
+        android:icon="@drawable/ic_create"
+        android:title="Create Note"/>
+</menu>

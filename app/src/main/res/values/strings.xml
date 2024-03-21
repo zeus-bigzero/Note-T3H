@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Note T3H</string>
+    <string name="title1">Manage your notes easily</string>
+    <string name="title2">Organize your thoughts</string>
+    <string name="title3">Create cards and easy styling</string>
+    <string name="description1">A completely easy way to manage and customize your notes.</string>
+    <string name="description2">Most beautiful note taking application.</string>
+    <string name="description3">Making your content legible has never been easier.</string>
+    <string name="start">Get Started</string>
+    <string name="next">Next</string>
 </resources>

@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="allNotes">#1A8E8E92</color>
+    <color name="favorites">#4DF7CE45</color>
+    <color name="hidden">#1A4E94F8</color>
+    <color name="trash">#1AEB4D3D</color>
 </resources>
