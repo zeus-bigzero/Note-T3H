@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.NoteT3H" parent="Base.Theme.NoteT3H" />
+
+    <style name="ViewBackground">
+        <item name="android:elevation">1dp</item>
+        <item name="android:background">@drawable/shape_while_bg</item>
+    </style>
+    <style name="fontFamily">
+        <item name="android:fontFamily">@font/nunito_regular</item>
+    </style>
 </resources>
