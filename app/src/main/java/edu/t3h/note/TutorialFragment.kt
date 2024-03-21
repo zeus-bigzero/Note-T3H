@@ -28,13 +28,13 @@ class TutorialFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        binding.viewPager.apply {
+        with(binding.viewPager) {
             adapter = TutorialAdapter()
             offscreenPageLimit = 2
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
-//                    Manager.step = position
+                    Manager.step = position
                     updateUi(position)
                 }
             })
@@ -42,7 +42,7 @@ class TutorialFragment : Fragment() {
         }
 
         binding.nextbtn.setOnClickListener {
-            if (Manager.step < 2) {
+            if (binding.viewPager.currentItem < 2) {
                 binding.viewPager.currentItem++
             } else {
                 parentFragmentManager.beginTransaction()
@@ -59,7 +59,7 @@ class TutorialFragment : Fragment() {
             binding.viewPager.currentItem--
         }
 
-//        updateUi(Manager.step)
+        updateUi(Manager.step)
     }
 
     private fun updateUi(step: Int) {

@@ -46,13 +46,13 @@ class NotesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.noteRv.apply {
+        with(binding.noteRv) {
             layoutManager = GridLayoutManager(context, 2).apply {
                 spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                     override fun getSpanSize(position: Int): Int {
                         return when (adapter?.getItemViewType(position)) {
-                            0 -> 2
-                            else -> 1
+                            0 -> 1
+                            else -> 2
                         }
                     }
                 }
@@ -137,34 +137,6 @@ class NotesFragment : Fragment() {
                         "Nisi, consectetur\n" +
                         "\n" +
                         "elementum."
-            ),
-            Note(
-                "Important",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam cum ligula justo."
-            ),
-            Note(
-                "Important",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam cum ligula justo."
-            ),
-            Note(
-                "Important",
-                "Lorem ipsum dolor sit amet, consectetur ."
-            ),
-            Note(
-                "Important",
-                "Lorem ipsum dolor sit amet, consectetur ."
-            ),
-            Note(
-                "Important",
-                "Lorem ipsum dolor sit amet, consectetur ."
-            ),
-            Note(
-                "Important",
-                "Lorem ipsum dolor sit amet, consectetur ."
-            ),
-            Note(
-                "Important",
-                "Lorem ipsum dolor sit amet, consectetur ."
             )
         )
     }
