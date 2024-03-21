@@ -62,40 +62,45 @@ class TutorialScreenActivity : AppCompatActivity() {
     }
 
     private fun updateStep() {
-        if (Manager.step == 0) {
-            mBinding.tvTitle1.text = "Manage your notes easily"
-            mBinding.tvTitle2.text = "A completely easy way to manage and customize your notes."
-            mBinding.view1.visibility = View.VISIBLE
-            mBinding.view2.visibility = View.INVISIBLE
-            mBinding.view3.visibility = View.INVISIBLE
-            mBinding.skip.visibility = View.VISIBLE
-            mBinding.btnBack.visibility = View.INVISIBLE
-            mBinding.btnNext.text = "Next"
-            mBinding.viewPager.currentItem = 0
-        } else if (Manager.step == 1) {
-            mBinding.tvTitle1.text = "Organize your thougts"
-            mBinding.tvTitle2.text = "Most beautiful note taking application."
-            mBinding.btnNext.text = "Next"
-            mBinding.view2.visibility = View.VISIBLE
-            mBinding.view1.visibility = View.INVISIBLE
-            mBinding.view3.visibility = View.INVISIBLE
-            mBinding.skip.visibility = View.VISIBLE
-            mBinding.btnBack.visibility = View.VISIBLE
-            mBinding.viewPager.currentItem = 1
-        } else if (Manager.step == 2) {
-            mBinding.tvTitle1.text = "Create cards and easy styling"
-            mBinding.tvTitle2.text = "Making your content legible has never been easier."
-            mBinding.btnNext.text = "Get Started"
-            mBinding.view3.visibility = View.VISIBLE
-            mBinding.view1.visibility = View.INVISIBLE
-            mBinding.view2.visibility = View.INVISIBLE
-            mBinding.skip.visibility = View.INVISIBLE
-            mBinding.btnBack.visibility = View.VISIBLE
-            mBinding.viewPager.currentItem = 2
-        } else {
-            Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+        when (Manager.step) {
+            0 -> {
+                mBinding.tvTitle1.text = "Manage your notes easily"
+                mBinding.tvTitle2.text = "A completely easy way to manage and customize your notes."
+                mBinding.view1.visibility = View.VISIBLE
+                mBinding.view2.visibility = View.INVISIBLE
+                mBinding.view3.visibility = View.INVISIBLE
+                mBinding.skip.visibility = View.VISIBLE
+                mBinding.btnBack.visibility = View.INVISIBLE
+                mBinding.btnNext.text = "Next"
+                mBinding.viewPager.currentItem = 0
+            }
+            1 -> {
+                mBinding.tvTitle1.text = "Organize your thougts"
+                mBinding.tvTitle2.text = "Most beautiful note taking application."
+                mBinding.btnNext.text = "Next"
+                mBinding.view2.visibility = View.VISIBLE
+                mBinding.view1.visibility = View.INVISIBLE
+                mBinding.view3.visibility = View.INVISIBLE
+                mBinding.skip.visibility = View.VISIBLE
+                mBinding.btnBack.visibility = View.VISIBLE
+                mBinding.viewPager.currentItem = 1
+            }
+            2 -> {
+                mBinding.tvTitle1.text = "Create cards and easy styling"
+                mBinding.tvTitle2.text = "Making your content legible has never been easier."
+                mBinding.btnNext.text = "Get Started"
+                mBinding.view3.visibility = View.VISIBLE
+                mBinding.view1.visibility = View.INVISIBLE
+                mBinding.view2.visibility = View.INVISIBLE
+                mBinding.skip.visibility = View.INVISIBLE
+                mBinding.btnBack.visibility = View.VISIBLE
+                mBinding.viewPager.currentItem = 2
+            }
+            else -> {
+                Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
         }
     }
 
