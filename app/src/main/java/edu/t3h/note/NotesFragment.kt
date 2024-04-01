@@ -15,13 +15,15 @@ class NotesFragment : Fragment() {
 
     private var _binding: FragmentNotesBinding? = null
     private val binding: FragmentNotesBinding get() = requireNotNull(_binding)
-
     private val notes = arrayListOf<Note>()
     private val adapter: NotesAdapter by lazy {
         NotesAdapter(notes, object : OnNoteClickListener {
             override fun onNoteClick(note: Note) {
-                Toast.makeText(binding.root.context, "OnClick: ${note.title}", Toast.LENGTH_SHORT)
-                    .show()
+                parentFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.container, DetailFragment(note), "Detail")
+                    .addToBackStack("Note")
+                    .commit()
             }
 
             override fun onNoteLongClick(note: Note) {
@@ -164,4 +166,9 @@ class NotesFragment : Fragment() {
 //            }
 //        }
 //    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

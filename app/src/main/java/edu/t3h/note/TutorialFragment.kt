@@ -26,8 +26,6 @@ class TutorialFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         with(binding.viewPager) {
             adapter = TutorialAdapter()
             offscreenPageLimit = 2

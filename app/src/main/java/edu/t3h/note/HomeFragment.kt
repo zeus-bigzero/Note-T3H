@@ -27,6 +27,7 @@ class HomeFragment : Fragment() {
             .replace(R.id.container, NotesFragment())
             .commit()
 
+
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.notes -> {
