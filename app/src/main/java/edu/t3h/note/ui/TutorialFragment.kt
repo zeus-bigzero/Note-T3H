@@ -1,11 +1,16 @@
 package edu.t3h.note.ui
 
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import edu.t3h.note.Manager
@@ -17,6 +22,29 @@ class TutorialFragment : Fragment() {
 
     private var _binding: FragmentTutorialBinding? = null
     private val binding: FragmentTutorialBinding get() = requireNotNull(_binding)
+
+    private val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        listOf(
+            android.Manifest.permission.READ_MEDIA_VIDEO,
+            android.Manifest.permission.READ_MEDIA_IMAGES,
+            android.Manifest.permission.READ_MEDIA_AUDIO,
+        )
+    } else {
+        listOf(
+            android.Manifest.permission.READ_EXTERNAL_STORAGE
+        )
+    }
+
+    private val requestMultiplePermissionsResult =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
+            if (isGranted(permissions)) {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.container, HomeFragment())
+                    .commit()
+            }else{
+                Toast.makeText(requireContext(), "Please allow permission", Toast.LENGTH_SHORT).show()
+            }
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,9 +75,13 @@ class TutorialFragment : Fragment() {
             if (binding.viewPager.currentItem < 2) {
                 binding.viewPager.currentItem++
             } else {
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.container, HomeFragment())
-                    .commit()
+                if (isGranted(permissions)) {
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.container, HomeFragment())
+                        .commit()
+                } else {
+                    requestMultiplePermissionsResult.launch(permissions.toTypedArray())
+                }
             }
         }
 
@@ -108,6 +140,25 @@ class TutorialFragment : Fragment() {
         _binding = null
     }
 
+    private fun isGranted(permissions: List<String>): Boolean {
+        for (permission in permissions) {
+            if (isDenied(permission)) {
+                return false
+            }
+        }
+        return true
+    }
+
+    private fun isDenied(permission: String): Boolean {
+        return !isGranted(permission)
+    }
+
+    private fun isGranted(permission: String): Boolean {
+        return ContextCompat.checkSelfPermission(
+            this.requireContext(),
+            permission
+        ) == PackageManager.PERMISSION_GRANTED
+    }
 //    override fun onDestroy() {
 //        super.onDestroy()
 //        binding.viewPager.unregisterOnPageChangeCallback(object :
