@@ -1,8 +1,9 @@
-package edu.t3h.note
+package edu.t3h.note.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import edu.t3h.note.R
 import edu.t3h.note.databinding.ItemTutorialBinding
 
 class TutorialAdapter : RecyclerView.Adapter<TutorialViewHolder>() {

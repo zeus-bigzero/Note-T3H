@@ -1,7 +1,8 @@
-package edu.t3h.note
+package edu.t3h.note.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import edu.t3h.note.R
 import edu.t3h.note.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

@@ -8,4 +8,6 @@
     <string name="description3">Making your content legible has never been easier.</string>
     <string name="start">Get Started</string>
     <string name="next">Next</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

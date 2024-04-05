@@ -1,10 +1,11 @@
-package edu.t3h.note
+package edu.t3h.note.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import edu.t3h.note.R
 import edu.t3h.note.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -17,7 +18,8 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding =
+            FragmentHomeBinding.inflate(LayoutInflater.from(requireContext()), container, false)
         return binding.root
     }
 
@@ -31,17 +33,26 @@ class HomeFragment : Fragment() {
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.notes -> {
-//                    Toast.makeText(this, "Notes Screen", Toast.LENGTH_SHORT).show()
+                    childFragmentManager.beginTransaction()
+                        .replace(R.id.container, NotesFragment())
+                        .addToBackStack(null)
+                        .commit()
                     true
                 }
 
                 R.id.event -> {
-//                    Toast.makeText(this, "Event Screen", Toast.LENGTH_SHORT).show()
+                    childFragmentManager.beginTransaction()
+                        .replace(R.id.container, EventFragment())
+                        .addToBackStack(null)
+                        .commit()
                     true
                 }
 
                 R.id.search -> {
-//                    Toast.makeText(this, "Search Screen", Toast.LENGTH_SHORT).show()
+                    childFragmentManager.beginTransaction()
+                        .replace(R.id.container, SearchFragment())
+                        .addToBackStack(null)
+                        .commit()
                     true
                 }
 
@@ -56,5 +67,10 @@ class HomeFragment : Fragment() {
                 else -> false
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

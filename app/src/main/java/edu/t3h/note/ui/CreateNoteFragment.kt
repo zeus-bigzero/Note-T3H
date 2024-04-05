@@ -1,4 +1,4 @@
-package edu.t3h.note
+package edu.t3h.note.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,7 +17,7 @@ class CreateNoteFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCreateNoteBinding.inflate(inflater, container, false)
+        _binding = FragmentCreateNoteBinding.inflate(LayoutInflater.from(requireContext()), container, false)
         return binding.root
     }
 
@@ -27,5 +27,15 @@ class CreateNoteFragment : Fragment() {
         binding.btnBack.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
+
+//        binding.root.setOnLongClickListener {
+//
+//            true
+//        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

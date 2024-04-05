@@ -1,4 +1,4 @@
-package edu.t3h.note
+package edu.t3h.note.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +15,7 @@ class DetailFragment(private val note: Note) : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentDetailBinding.inflate(LayoutInflater.from(requireContext()), container, false)
         binding.pageContent.setText(note.content)
         binding.pageTitle.setText(note.title)
         binding.btnBack.setOnClickListener {

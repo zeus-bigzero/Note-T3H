@@ -1,4 +1,4 @@
-package edu.t3h.note
+package edu.t3h.note.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import edu.t3h.note.adapter.NotesAdapter
+import edu.t3h.note.R
 import edu.t3h.note.databinding.FragmentNotesBinding
 import edu.t3h.note.listener.OnNoteClickListener
 import edu.t3h.note.model.Note
@@ -41,7 +43,7 @@ class NotesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentNotesBinding.inflate(inflater, container, false)
+        _binding = FragmentNotesBinding.inflate(LayoutInflater.from(requireContext()), container, false)
         notes.addAll(getList())
         return binding.root
     }

@@ -1,4 +1,4 @@
-package edu.t3h.note
+package edu.t3h.note.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import edu.t3h.note.Manager
+import edu.t3h.note.R
+import edu.t3h.note.adapter.TutorialAdapter
 import edu.t3h.note.databinding.FragmentTutorialBinding
 
 class TutorialFragment : Fragment() {
@@ -20,7 +23,8 @@ class TutorialFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentTutorialBinding.inflate(inflater, container, false)
+        _binding =
+            FragmentTutorialBinding.inflate(LayoutInflater.from(requireContext()), container, false)
         return binding.root
     }
 
@@ -96,6 +100,12 @@ class TutorialFragment : Fragment() {
                 binding.slider3.setImageResource(R.drawable.rectangle)
             }
         }
+    }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 //    override fun onDestroy() {
