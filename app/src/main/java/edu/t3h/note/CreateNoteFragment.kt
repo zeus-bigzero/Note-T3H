@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import edu.t3h.note.databinding.FragmentCreateNoteBinding
 
@@ -27,6 +28,9 @@ class CreateNoteFragment : Fragment() {
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.container,HomeScreenFragment())
                     .commit()
+            }
+            pageBody.setOnLongClickListener {
+                true
             }
         }
     }

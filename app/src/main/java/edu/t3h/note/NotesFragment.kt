@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.t3h.note.adapter.NoteAdapter
 import edu.t3h.note.databinding.FragmentNotesBinding
-import edu.t3h.note.listener.OnNoteClickLisatener
+import edu.t3h.note.listener.OnNoteClickListener
 import edu.t3h.note.model.Note
 import java.util.Date
 import java.util.Locale
@@ -98,7 +98,7 @@ class NotesFragment : Fragment() {
                         getString(R.string.lorem_ipsum)
                     ),
                 ),
-                object : OnNoteClickLisatener{
+                object : OnNoteClickListener{
                     override fun onClickNote(note: Note) {
                         TODO("Not yet implemented")
                     }
