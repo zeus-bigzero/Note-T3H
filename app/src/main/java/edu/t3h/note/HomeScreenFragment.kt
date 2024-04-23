@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import edu.t3h.note.adapter.NoteAdapter
 import edu.t3h.note.databinding.FragmentHomeScreenBinding
 import edu.t3h.note.listener.OnNoteClickLisatener
 import edu.t3h.note.model.Note
@@ -17,8 +18,7 @@ import java.util.Locale
 class HomeScreenFragment : Fragment() {
     private lateinit var binding: FragmentHomeScreenBinding
     private val mBinding: FragmentHomeScreenBinding by lazy { binding }
-
-    private val notes = arrayListOf(Note)
+    private val notes = arrayListOf<Note>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -103,7 +103,6 @@ class HomeScreenFragment : Fragment() {
                     override fun onLongClickNote(note: Note) {
                         TODO("Not yet implemented")
                     }
-
                 }
             )
         }

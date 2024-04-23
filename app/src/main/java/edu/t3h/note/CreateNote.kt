@@ -7,6 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.LinearLayoutCompat
+import edu.t3h.note.controller.Manager
 
 class CreateNote : AppCompatActivity() {
     private lateinit var pageTitle : EditText

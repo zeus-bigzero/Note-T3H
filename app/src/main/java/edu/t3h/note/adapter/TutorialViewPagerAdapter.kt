@@ -1,4 +1,4 @@
-package edu.t3h.note
+package edu.t3h.note.adapter
 
 import android.content.Context
 import android.graphics.drawable.Drawable

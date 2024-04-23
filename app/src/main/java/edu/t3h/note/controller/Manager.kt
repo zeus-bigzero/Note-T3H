@@ -1,4 +1,4 @@
-package edu.t3h.note
+package edu.t3h.note.controller
 
 object Manager {
     var step = 0

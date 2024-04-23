@@ -8,14 +8,16 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import edu.t3h.note.adapter.TutorialViewPagerAdapter
+import edu.t3h.note.controller.Manager
 import edu.t3h.note.databinding.ActivityTutorialScreenBinding
 import java.io.IOException
 
 
 class TutorialScreenActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityTutorialScreenBinding
-    private val mBinding: ActivityTutorialScreenBinding by lazy { binding }
+    private var binding: ActivityTutorialScreenBinding? = null
+    private val mBinding: ActivityTutorialScreenBinding by lazy { requireNotNull(binding) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
