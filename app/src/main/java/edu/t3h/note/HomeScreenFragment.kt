@@ -1,112 +1,60 @@
 package edu.t3h.note
 
-import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import edu.t3h.note.adapter.NoteAdapter
 import edu.t3h.note.databinding.FragmentHomeScreenBinding
-import edu.t3h.note.listener.OnNoteClickLisatener
-import edu.t3h.note.model.Note
-import java.util.Date
-import java.util.Locale
-
 
 class HomeScreenFragment : Fragment() {
-    private lateinit var binding: FragmentHomeScreenBinding
-    private val mBinding: FragmentHomeScreenBinding by lazy { binding }
-    private val notes = arrayListOf<Note>()
-
+    private var _binding: FragmentHomeScreenBinding? = null
+    private val binding: FragmentHomeScreenBinding by lazy { requireNotNull(_binding) }
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeScreenBinding.inflate(inflater, container, false)
-        val formatter = SimpleDateFormat("dd MMMM, yyyy", Locale.ENGLISH)
-        val date = Date()
-        val current = formatter.format(date)
-        mBinding.date.text = current
+        _binding = FragmentHomeScreenBinding.inflate(inflater,container,false)
+        return binding.root
+    }
 
-
-        mBinding.recyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = NoteAdapter(
-                listOf(
-                    Note(
-                        System.currentTimeMillis(),
-                        getString(R.string.getting_started),
-                        getString(R.string.lorem_ipsum)
-                    ),
-                    Note(
-                        System.currentTimeMillis(),
-                        getString(R.string.getting_started),
-                        getString(R.string.lorem_ipsum)
-                    ),
-                    Note(
-                        System.currentTimeMillis(),
-                        getString(R.string.getting_started),
-                        getString(R.string.lorem_ipsum)
-                    ),
-                    Note(
-                        System.currentTimeMillis(),
-                        getString(R.string.getting_started),
-                        getString(R.string.lorem_ipsum)
-                    ),
-                    Note(
-                        System.currentTimeMillis(),
-                        getString(R.string.getting_started),
-                        getString(R.string.lorem_ipsum)
-                    ),
-                    Note(
-                        System.currentTimeMillis(),
-                        getString(R.string.getting_started),
-                        getString(R.string.lorem_ipsum)
-                    ),
-                    Note(
-                        System.currentTimeMillis(),
-                        getString(R.string.getting_started),
-                        getString(R.string.lorem_ipsum)
-                    ),
-                    Note(
-                        System.currentTimeMillis(),
-                        getString(R.string.getting_started),
-                        getString(R.string.lorem_ipsum)
-                    ),
-                    Note(
-                        System.currentTimeMillis(),
-                        getString(R.string.getting_started),
-                        getString(R.string.lorem_ipsum)
-                    ),
-                    Note(
-                        System.currentTimeMillis(),
-                        getString(R.string.getting_started),
-                        getString(R.string.lorem_ipsum)
-                    ),
-                    Note(
-                        System.currentTimeMillis(),
-                        getString(R.string.getting_started),
-                        getString(R.string.lorem_ipsum)
-                    ),
-                    Note(
-                        System.currentTimeMillis(),
-                        getString(R.string.getting_started),
-                        getString(R.string.lorem_ipsum)
-                    ),
-                ),
-                object : OnNoteClickLisatener{
-                    override fun onClickNote(note: Note) {
-                        TODO("Not yet implemented")
-                    }
-
-                    override fun onLongClickNote(note: Note) {
-                        TODO("Not yet implemented")
-                    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        replaceFragment(NotesFragment())
+        binding.navigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.navigation_notes -> {
+                    replaceFragment(NotesFragment())
+                    true
                 }
-            )
+                R.id.navigation_event -> {
+                    replaceFragment(EventsFragment())
+                    true
+                }
+                R.id.navigation_search -> {
+                    replaceFragment(SearchFragment())
+                    true
+                }
+                R.id.navigation_createNote -> {
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.container,CreateNoteFragment())
+                        .commit()
+                    true
+                } else -> false
+            }
         }
-        return mBinding.root
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        childFragmentManager
+            .beginTransaction()
+            .replace(binding.container.id, fragment)
+            .commit()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
-

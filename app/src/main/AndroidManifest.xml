@@ -13,27 +13,12 @@
         android:theme="@style/Theme.NoteT3H"
         tools:targetApi="34">
         <activity
-            android:name=".TutorialScreenActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".HomeScreenFragment"
-            android:exported="false">
-        </activity>
-
-        <activity
-            android:name=".CreateNote"
-            android:exported="false">
-        </activity>
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="false">
         </activity>
 
     </application>

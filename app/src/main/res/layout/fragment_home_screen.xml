@@ -1,197 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F2F6"
-    android:clipToPadding="false"
-    android:padding="20dp">
+    tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchBar"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#3C3C4399"
-            android:textSize="13sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/notes"
-            android:fontFamily=""
-            android:textColor="#1C2121"
-            android:textSize="26sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/option_icon"
-        app:layout_constraintBottom_toTopOf="@id/searchBar"
+        android:background="#D37272"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@null"
+        app:layout_constraintHeight_percent="0.9"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/searchBar"
-        style="@style/ViewBackground"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="15dp"
-        android:hint="@string/search"
-        android:inputType="text"
-        android:autofillHints="@null"
-        android:paddingHorizontal="10dp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title" />
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/allNotes"
-        style="@style/ViewBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="15dp"
-        android:gravity="center_vertical"
-        app:layout_constraintHeight_percent="0.065"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchBar"
-        app:layout_constraintWidth_percent="0.485">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:contentDescription="@null"
-            android:src="@drawable/notes_icon" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="@string/all_notes"
-            android:textColor="#1C2121"
-            android:textSize="15sp" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/favourites"
-        style="@style/ViewBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="15dp"
-        android:gravity="center_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.065"
-        app:layout_constraintTop_toBottomOf="@id/searchBar"
-        app:layout_constraintWidth_percent="0.485">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:contentDescription="@null"
-            android:src="@drawable/favourites_icon" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="@string/favourites"
-            android:textColor="#1C2121"
-            android:textSize="15sp" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/hidden"
-        style="@style/ViewBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="15dp"
-        android:gravity="center_vertical"
-        app:layout_constraintHeight_percent="0.065"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/allNotes"
-        app:layout_constraintWidth_percent="0.485">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:contentDescription="@null"
-            android:src="@drawable/hidden_icon" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="@string/hidden"
-            android:textColor="#1C2121"
-            android:textSize="15sp" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/trash"
-        style="@style/ViewBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="15dp"
-        android:gravity="center_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.065"
-        app:layout_constraintTop_toBottomOf="@id/favourites"
-        app:layout_constraintWidth_percent="0.485">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:contentDescription="@null"
-            android:src="@drawable/trash_icon" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="@string/trash"
-            android:textColor="#1C2121"
-            android:textSize="15sp" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <TextView
-        android:id="@+id/title_recent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/recent_notes"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/recyclerView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hidden" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:background="@color/white"
+        app:menu="@menu/navigation"
+        app:itemIconTint="@drawable/nav_item_color_state"
+        app:itemTextColor="@drawable/nav_item_color_state"
+        app:labelVisibilityMode="labeled"
+        app:itemBackground="@drawable/top_nav_background"
+        app:itemActiveIndicatorStyle="@style/ShapeAppearance.Material3.Corner.None"
+        app:itemTextAppearanceActiveBoldEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintHeight_percent="0.1"
         app:layout_constraintStart_toStartOf="parent" />
 
 

@@ -44,7 +44,7 @@
     </string>
     <string name="create_note">Create Note</string>
     <string name="search">Search</string>
-    <string name="event">Event</string>
+    <string name="event">Events</string>
     <string name="notes">Notes</string>
     <string name="hidden">Hidden</string>
     <string name="trash">Trash</string>
@@ -56,4 +56,10 @@
     <string name="save">Save</string>
     <string name="page_title">Page Title</string>
     <string name="skip">Skip</string>
+    <string name="tuto_1_title_1">Manage your notes easily</string>
+    <string name="tuto_1_title_2">A completely easy way to manage and customize your notes.</string>
+    <string name="tuto_2_title_1">Organize your thougts</string>
+    <string name="tuto_2_title_2">Most beautiful note taking application.</string>
+    <string name="tuto_3_title_1">Create cards and easy styling</string>
+    <string name="tuto_3_title_2">Making your content legible has never been easier.</string>
 </resources>

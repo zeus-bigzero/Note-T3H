@@ -1,43 +1,63 @@
 package edu.t3h.note
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
-import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import edu.t3h.note.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-    private val mBinding: ActivityMainBinding by lazy { binding }
-
-    val homeScreenFragment = HomeScreenFragment()
+    private var _binding: ActivityMainBinding? = null
+    private val binding: ActivityMainBinding by lazy { requireNotNull(_binding) }
+    private var isHandleCallbackBackPress: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(mBinding.root)
-        replaceFragment(homeScreenFragment)
-
-        mBinding.navigation.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.navigation_notes -> replaceFragment(homeScreenFragment)
-                R.id.navigation_event -> Toast.makeText(this, "event screen", Toast.LENGTH_SHORT)
-                    .show()
-                R.id.navigation_search -> Toast.makeText(this, "search screen", Toast.LENGTH_SHORT)
-                    .show()
-                R.id.navigation_createNote -> startActivity(Intent(this, CreateNote::class.java))
-
-                else -> {}
-            }
-            true
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val sharedPref = this.getSharedPreferences("tutorial_state", Context.MODE_PRIVATE)
+        val isTutorialFinished = sharedPref.getBoolean("is_finish", true)
+        if (isTutorialFinished) {
+            replaceFragment(TutorialScreenFragment())
+        } else {
+            replaceFragment(HomeScreenFragment())
         }
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (isHandleCallbackBackPress) {
+                    showCloseAppDialog()
+                } else {
+                    finish()
+                }
+            }
+        })
     }
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
-            .replace(mBinding.container.id, fragment)
+            .replace(binding.container.id, fragment)
             .commit()
+    }
+
+    private fun showCloseAppDialog() {
+        AlertDialog.Builder(this).apply {
+            setTitle("Thông báo")
+            setMessage("Bạn có muốn thoát ứng dụng không?")
+            setPositiveButton("Có") { _, _ ->
+                isHandleCallbackBackPress = false
+                onBackPressedDispatcher.onBackPressed()
+            }
+            setNegativeButton("Không") { _, _ ->}
+            show()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
