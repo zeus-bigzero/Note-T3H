@@ -25,11 +25,11 @@ class NoteAdapter(
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val note = notes[position]
-        holder.bind(note, position)
+        holder.bind(note)
     }
 
     inner class NoteViewHolder(val binding: ItemNoteBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(note: NoteModel, position: Int) {
+        fun bind(note: NoteModel) {
             binding.tvTitle.text = note.title
             binding.tvDes.text = note.des
 

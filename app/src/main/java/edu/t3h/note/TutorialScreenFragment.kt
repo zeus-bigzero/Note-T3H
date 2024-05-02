@@ -107,8 +107,8 @@ class TutorialScreenFragment : Fragment() {
                 }
             }
             else -> {
-                val sharedPref = activity?.getSharedPreferences("tutorial_state", Context.MODE_PRIVATE)
-                sharedPref?.edit()?.putBoolean("is_finish", false)?.apply()
+                val sharedPref = activity?.getSharedPreferences("appData", Context.MODE_PRIVATE)
+                sharedPref?.edit()?.putBoolean("isTutorialFinish", false)?.apply()
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.container,HomeScreenFragment())
                     .commit()

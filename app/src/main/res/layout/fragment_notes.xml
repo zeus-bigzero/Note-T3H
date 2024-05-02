@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:background="#F2F2F6"
     android:clipToPadding="false"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:tag="noteFragment">
 
     <LinearLayout
         android:id="@+id/title"
@@ -187,7 +188,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.55"
+        app:layout_constraintHeight_percent="0.65"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_recent" />
 

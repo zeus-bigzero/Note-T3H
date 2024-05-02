@@ -4,8 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import edu.t3h.note.controller.Manager
 import edu.t3h.note.databinding.FragmentCreateNoteBinding
 
 class CreateNoteFragment : Fragment() {
@@ -29,8 +30,18 @@ class CreateNoteFragment : Fragment() {
                     .replace(R.id.container,HomeScreenFragment())
                     .commit()
             }
-            pageBody.setOnLongClickListener {
-                true
+            btnSave.setOnClickListener{
+                if (binding.pageTitle.text.isNullOrEmpty() || binding.pageBody.text.isNullOrEmpty()){
+                    Toast.makeText(requireContext(),"Vui lòng nhập đầy đủ Tiêu Đề và Nội Dung",Toast.LENGTH_SHORT).show()
+                } else {
+                    Manager.des = binding.pageBody.text.toString()
+                    Manager.title = binding.pageTitle.text.toString()
+                    binding.pageBody.text = null
+                    binding.pageTitle.text = null
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.container,HomeScreenFragment())
+                        .commit()
+                }
             }
         }
     }
