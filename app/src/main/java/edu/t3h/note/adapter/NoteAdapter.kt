@@ -5,15 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import edu.t3h.note.databinding.ItemNoteBinding
 import edu.t3h.note.listener.OnNoteClickListener
-import edu.t3h.note.model.Note
+import edu.t3h.note.model.NoteModel
 
 class NoteAdapter(
-    private val notes: List<Note>,
+    private val notes: List<NoteModel>,
     private val listener: OnNoteClickListener
 ) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
+        return if (position == 0 || position == 1) {0} else {1}
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
@@ -29,7 +29,7 @@ class NoteAdapter(
     }
 
     inner class NoteViewHolder(val binding: ItemNoteBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(note: Note, position: Int) {
+        fun bind(note: NoteModel, position: Int) {
             binding.tvTitle.text = note.title
             binding.tvDes.text = note.des
 
@@ -39,7 +39,7 @@ class NoteAdapter(
 
             binding.root.setOnLongClickListener {
                 listener.onLongClickNote(note)
-                return@setOnLongClickListener false
+                true
             }
         }
     }
