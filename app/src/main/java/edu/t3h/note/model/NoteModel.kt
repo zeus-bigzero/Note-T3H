@@ -3,13 +3,13 @@ package edu.t3h.note.model
 import com.google.gson.Gson
 
 data class NoteModel(
-    val id: Long = System.currentTimeMillis(),
-    val title: String,
-    val des: String,
-    val colorResID : String,
-    val isFavourite: Boolean = false,
-    val isHidden: Boolean = false,
-    val isTrash: Boolean = false
+    var id: Long = System.currentTimeMillis(),
+    var title: String,
+    var des: String,
+    var colorResID : String,
+    var isFavourite: Boolean = false,
+    var isHidden: Boolean = false,
+    var isTrash: Boolean = false
 ) {
 
     override fun toString(): String {

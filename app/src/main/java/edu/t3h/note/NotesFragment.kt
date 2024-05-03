@@ -3,7 +3,6 @@ package edu.t3h.note
 import android.content.Context
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,21 +18,12 @@ import java.util.Date
 import java.util.Locale
 
 
-class NotesFragment : Fragment() {
+class NotesFragment : Fragment(), OnNoteClickListener {
     private var _binding: FragmentNotesBinding? = null
     private val binding: FragmentNotesBinding by lazy { requireNotNull(_binding) }
     private val list = arrayListOf<NoteModel>()
     private val adapter: NoteAdapter by lazy {
-        NoteAdapter(list,
-            object : OnNoteClickListener {
-                override fun onClickNote(note: NoteModel) {
-                    TODO("Not yet implemented")
-                }
-
-                override fun onLongClickNote(note: NoteModel) {
-                    TODO("Not yet implemented")
-                }
-            })
+        NoteAdapter(list, this)
     }
 
     override fun onCreateView(
@@ -52,10 +42,14 @@ class NotesFragment : Fragment() {
 
         val sharedPref = activity?.getSharedPreferences("appData", Context.MODE_PRIVATE)
         val notesData  = sharedPref?.getStringSet("notesData", null)
-        Log.d("NGHIA",notesData.toString())
         if (!notesData.isNullOrEmpty()) {
             notesData.forEach {
-                list.add(Gson().fromJson(it,NoteModel::class.java))
+                val content = it.replace("\n","@n_Line")
+                val obj : NoteModel = Gson().fromJson(content,NoteModel::class.java)
+                if (obj.des.contains("@n_Line",false)) {
+                    obj.des = obj.des.replace("@n_Line","\n")
+                }
+                list.add(obj)
             }
         }
 
@@ -105,6 +99,17 @@ class NotesFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onClickNote(note: NoteModel) {
+        Manager.note = note
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.container,CreateNoteFragment())
+            .commit()
+    }
+
+    override fun onLongClickNote(note: NoteModel) {
+        TODO("Not yet implemented")
     }
 }
 

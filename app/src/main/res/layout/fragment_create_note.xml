@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:padding="20dp">
 
@@ -12,17 +12,32 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:weightSum="10">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/round_arrow_back_ios_new_24"/>
+            android:importantForAccessibility="no"
+            android:src="@drawable/round_arrow_back_ios_new_24" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/back"
-            android:textColor="#007AFF"/>
+            android:textColor="#007AFF" />
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <ImageView
+        android:id="@+id/btnAddImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/baseline_attach_file_24"
+        app:layout_constraintBottom_toBottomOf="@id/btnSave"
+        app:layout_constraintEnd_toStartOf="@+id/btnSave"
+        app:layout_constraintTop_toTopOf="@id/btnSave"/>
 
     <TextView
         android:id="@+id/btnSave"
@@ -30,38 +45,68 @@
         android:layout_height="wrap_content"
         android:background="@drawable/shape_while_bg"
         android:backgroundTint="#1F2124"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
         android:text="@string/save"
         android:textColor="@color/white"
         android:textSize="15sp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/pageTitle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.05"
-        app:layout_constraintTop_toBottomOf="@+id/btnSave"
-        android:background="@null"
         android:layout_marginTop="20dp"
+        android:background="@null"
         android:hint="@string/page_title"
+        android:importantForAutofill="no"
+        android:textSize="26sp"
         android:textStyle="bold"
-        android:textSize="26sp"/>
+        android:maxLines="1"
+        android:inputType="textCapSentences"
+        android:textColor="@color/black"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintTop_toBottomOf="@+id/btnSave" />
 
-    <EditText
-        android:id="@+id/pageBody"
+    <LinearLayout
+        android:id="@+id/bodyLayout"
         android:layout_width="match_parent"
-        app:layout_constraintHeight_percent="0.85"
-        app:layout_constraintTop_toBottomOf="@+id/pageTitle"
-        android:background="@null"
-        android:layout_marginTop="20dp"
-        android:textSize="16sp"
         android:layout_height="0dp"
-        android:inputType="textMultiLine"
-        android:gravity="top"/>
+        android:layout_marginTop="10dp"
+        android:importantForAutofill="no"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pageTitle"
+        android:orientation="vertical"
+        android:weightSum="6">
+
+        <EditText
+            android:id="@+id/pageBody"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:background="@null"
+            android:textColor="@color/black"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:textSize="16sp"
+            android:hint="@string/content"
+            android:importantForAutofill="no"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:importantForAccessibility="no"/>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,8 +29,8 @@
         android:id="@+id/tvDes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxLength="200"
         android:ellipsize="end"
-        android:maxLines="3"
         android:text="@string/lorem_ipsum"
         android:textColor="#1C2121"
         android:textSize="12sp" />
