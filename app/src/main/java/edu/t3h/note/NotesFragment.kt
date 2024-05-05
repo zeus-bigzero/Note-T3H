@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.gson.Gson
@@ -84,12 +85,7 @@ class NotesFragment : Fragment(), OnNoteClickListener {
                     false
                 )
             )
-            val mutableSet = mutableSetOf<String>()
-            list.forEach {
-                mutableSet.add(it.toString())
-            }
-            val sharedPref = activity?.getSharedPreferences("appData", Context.MODE_PRIVATE)
-            sharedPref!!.edit()!!.putStringSet("notesData", mutableSet)!!.apply()
+            saveFile()
             Manager.des = ""
             Manager.title = ""
             adapter.notifyDataSetChanged()
@@ -109,7 +105,34 @@ class NotesFragment : Fragment(), OnNoteClickListener {
     }
 
     override fun onLongClickNote(note: NoteModel) {
-        TODO("Not yet implemented")
+        AlertDialog.Builder(requireContext()).apply {
+            setTitle("Thông báo")
+            setMessage("Bạn có có muốn xóa Note đang chọn không??")
+            setPositiveButton("Có") { _, _ ->
+                for (i in 0..<list.size) {
+                    if (list[i].id == note.id) {
+                        list.removeAt(i)
+                        saveFile()
+                        adapter.notifyDataSetChanged()
+                        break
+                    }
+                }
+            }
+            setNegativeButton("Không") { _, _ ->
+                //DO NOTHING
+            }
+            show()
+        }
+
+    }
+
+    private fun saveFile() {
+        val mutableSet = mutableSetOf<String>()
+        list.forEach {
+            mutableSet.add(it.toString())
+        }
+        val sharedPref = activity?.getSharedPreferences("appData", Context.MODE_PRIVATE)
+        sharedPref!!.edit()!!.putStringSet("notesData", mutableSet)!!.apply()
     }
 }
 

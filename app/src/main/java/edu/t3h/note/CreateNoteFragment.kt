@@ -116,10 +116,10 @@ class CreateNoteFragment : Fragment() {
             Manager.title = binding.pageTitle.text.toString()
             binding.pageBody.text = null
             binding.pageTitle.text = null
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container,HomeScreenFragment())
+                .commit()
         }
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.container,HomeScreenFragment())
-            .commit()
     }
 
     private fun openGallery() {
@@ -150,4 +150,5 @@ class CreateNoteFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
