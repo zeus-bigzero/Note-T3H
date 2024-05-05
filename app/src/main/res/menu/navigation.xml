@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_notes"
+        android:icon="@drawable/note_btn"
+        android:title="@string/notes" />
+
+    <item
+        android:id="@+id/navigation_event"
+        android:icon="@drawable/calendar_btn"
+        android:title="@string/event" />
+
+    <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/search_btn"
+        android:title="@string/search" />
+
+    <item
+        android:id="@+id/navigation_createNote"
+        android:icon="@drawable/createnote_btn"
+        android:title="@string/create_note" />
+</menu>
